@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    {# Navbar #}
+    <nav class="navbar navbar-dark bg-dark justify-content-end">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                User
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Retour au site</a>
+                <a class="dropdown-item" href="{{ path('app_login') }}">Déconnexion</a>
+            </div>
+        </li>
+    </nav>
+
+    {# Left menu #}
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-2 collapse d-md-flex bg-dark pt-2 min-vh-100" id="sidebar">
+                <ul class="nav flex-column flex-nowrap">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Média ▼</a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item"><a class="nav-link py-0" href="#">Ajouter une photo</a></li>
+                                <li class="nav-item"><a class="nav-link py-0" href="#">Créer un album</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gestion des stocks</a></li>
+                </ul>
+            </div>
+
+            <div class="col pt-2">
+                <h2>
+                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
+                    Dashboard
+                </h2>
+                <h6 class="hidden-sm-down">Stats</h6>
+                <p>Le contenu ici !</p>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
