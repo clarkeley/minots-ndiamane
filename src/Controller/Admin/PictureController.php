@@ -4,6 +4,7 @@
 namespace App\Controller\Admin;
 
 
+use App\Entity\Album;
 use App\Form\FormHandler\PicTypeHandler;
 use App\Form\PicType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/addpicture", name="app_media_picture")
+ * @Route("/{id}addpicture", name="app_media_picture")
  */
 class PictureController extends AbstractController
 {
@@ -25,7 +26,7 @@ class PictureController extends AbstractController
         $this->formFactory = $formFactory;
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request, Album $album): Response
     {
         $form = $this->createForm(PicType::class);
         $form->handleRequest($request);

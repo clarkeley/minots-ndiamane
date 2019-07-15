@@ -8,11 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/album", name="album")
+ */
 class AlbumController extends AbstractController
 {
-    /**
-     * @Route("/album", name="album")
-     */
 
     private $formHandler;
     private $formFactory;
@@ -29,14 +29,12 @@ class AlbumController extends AbstractController
         $form->handleRequest($request);
 
         if ($this->formHandler->handle($form)){
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
 
             $this->addFlash('sucess', 'succes');
 
             $this->redirectToRoute('album');
         }
 
-        return $this->render(':Admin:mediaAlbum.html.twig', array('form' => $form->createView()));
+        return $this->render('Admin/mediaAlbum.html.twig', array('form' => $form->createView()));
     }
 }

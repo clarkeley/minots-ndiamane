@@ -2,24 +2,22 @@
 
 {% block body %}
     <div class="container">
-        <form>
             {{ form_start(form) }}
 
             <div class="form-group">
-                {{ form_row(form.Title) }}
+                {{ form_row(form.title) }}
             </div>
 
             <div class="form-group">
-                {{ form_row(form.Date) }}
+                {{ form_row(form.date) }}
             </div>
 
             <div class="form-group">
-                {{ form_row(form.Content) }}
+                {{ form_row(form.caption) }}
             </div>
 
             <button type="submit" class="btn btn-primary">Créer l'Album</button>
 
             {{ form_end(form) }}
-        </form>
     </div>
 {% endblock %}
