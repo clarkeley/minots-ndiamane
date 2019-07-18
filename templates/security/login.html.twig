@@ -7,6 +7,7 @@
         <div class="container d-5 col-lg-3 f-login">
             <form method="post">
                 {% if error %}
+                    {{ dump(error) }}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
