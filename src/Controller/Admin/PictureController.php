@@ -3,38 +3,39 @@
 
 namespace App\Controller\Admin;
 
-
 use App\Entity\Album;
+use App\Entity\Picture;
 use App\Form\FormHandler\PicTypeHandler;
 use App\Form\PicType;
+use App\Manager\AlbumManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/{id}addpicture", name="app_media_picture")
+ * @Route("/addpicture", name="app_media_picture")
  */
 class PictureController extends AbstractController
 {
     private $formHandler;
     private $formFactory;
+    private $albumManager;
 
-    public function __construct(PicTypeHandler $formHandler, PicType $formFactory)
+    public function __construct(PicTypeHandler $formHandler, PicType $formFactory, AlbumManager $albumManager)
     {
         $this->formHandler = $formHandler;
         $this->formFactory = $formFactory;
+        $this->albumManager = $albumManager;
     }
 
-    public function __invoke(Request $request, Album $album): Response
+    public function __invoke(Request $request)
     {
         $form = $this->createForm(PicType::class);
         $form->handleRequest($request);
 
-        if ($this->formHandler->handle($form)) {
+        //$this->albumManager->addPicture($album);
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
+        if ($this->formHandler->handle($form)) {
 
             $this->addFlash('sucess', 'succes');
 
@@ -43,5 +44,4 @@ class PictureController extends AbstractController
 
         return $this->render('Admin/mediaPicture.html.twig', array('form' => $form->createView()));
     }
-
 }

@@ -2,24 +2,26 @@
 
 {% block body %}
     <div class="container">
-        <form>
-            {{ form_start(form) }}
+        {{ form_start(form) }}
 
-            <div class="form-group">
-                {{ form_row(form.imageFile) }}
-            </div>
+        <div class="form-group">
+            {{ form_row(form.imageFile) }}
+        </div>
 
-            <div class="form-group">
-                {{ form_row(form.Date) }}
-            </div>
+        <div class="form-group">
+            {{ form_row(form.date) }}
+        </div>
 
-            <div class="form-group">
-                {{ form_row(form.Caption) }}
-            </div>
+        <div class="form-group">
+            {{ form_row(form.caption) }}
+        </div>
 
-            <button type="submit" class="btn btn-primary">Ajouter l'image</button>
+        <div class="form-group">
+            {{ form_row(form.album) }}
+        </div>
 
-            {{ form_end(form) }}
-        </form>
+        <button type="submit" class="btn btn-primary">Ajouter l'image</button>
+
+        {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -34,7 +34,6 @@ class Album
     private $caption;
 
     /**
-     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="album", cascade={"persist","remove"})
      */
     private $pictures;
