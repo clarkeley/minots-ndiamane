@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zone d'administration{% endblock %}
+
+{% block body %}
+    <body id="login">
+        <div class="container d-5 col-lg-3 f-login">
+            <form method="post">
+                {% if error %}
+                    {{ dump(error) }}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                <h2 class="text-center">Merci de vous connecter ici</h2>
+
+                <hr class="colorgraph">
+
+                <div class="form-group">
+                    <label for="inputUsername">Pseudonyme</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="_remember_me" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Se souvenir</label>
+                </div>
+
+                <hr class="colorgraph">
+
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary text-center justify-content-center">Se connecter</button>
+                </div>
+
+            </form>
+            <br>
+        </div>
+    </body>
+{% endblock %}
