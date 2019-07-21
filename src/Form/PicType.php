@@ -39,7 +39,7 @@ class PicType extends AbstractType
                 'class' => Album::class,
                 'choice_label' => 'title',
                 'multiple' => true,
-                'required' => false
+                'by_reference' => false
             ]);
     }
 
