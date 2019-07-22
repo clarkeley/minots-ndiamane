@@ -38,7 +38,6 @@ class PicType extends AbstractType
             ->add('album', EntityType::class, [
                 'class' => Album::class,
                 'choice_label' => 'title',
-                'multiple' => true,
                 'by_reference' => false
             ]);
     }

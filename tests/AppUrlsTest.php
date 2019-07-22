@@ -14,19 +14,19 @@ class AppUrlsTest extends WebTestCase
      * @dataProvider urlProvider
      * @param $url
      */
-    public function testPageIsSuccessful($url)
+    public function testPageIsSuccessful($url, $expectedStatus)
     {
         $client = self::createClient();
         $client->request('GET', $url);
 
-        $this->assertResponseIsSuccessful();
+        $this->assertEquals($client->getResponse()->getStatusCode(), $expectedStatus);
     }
 
     public function urlProvider()
     {
         yield ['/login', Response::HTTP_OK];
-        yield ['/dashboard', Response::HTTP_NETWORK_AUTHENTICATION_REQUIRED];
-        yield ['/album', Response::HTTP_NETWORK_AUTHENTICATION_REQUIRED];
-        yield ['/addpicture', Response::HTTP_NETWORK_AUTHENTICATION_REQUIRED];
+        yield ['/dashboard', Response::HTTP_FOUND];
+        yield ['/album', Response::HTTP_FOUND];
+        yield ['/addpicture', Response::HTTP_FOUND];
     }
 }
