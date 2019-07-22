@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7480a75569174d334b214ef9d63d68e3",
+    "content-hash": "7a92bd844f7e590f7cad3de0352a186d",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -6416,7 +6416,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",

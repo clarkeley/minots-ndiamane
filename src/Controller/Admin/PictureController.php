@@ -30,6 +30,8 @@ class PictureController extends AbstractController
 
     public function __invoke(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY', null, 'Login is require !');
+
         $form = $this->createForm(PicType::class);
         $form->handleRequest($request);
 
