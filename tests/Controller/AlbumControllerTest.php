@@ -10,7 +10,10 @@ class AlbumControllerTest extends WebTestCase
 {
     public function testValidData()
     {
-        $client = static::createClient();
+        $client = static::createClient([], [
+            'PHP_AUTH_USER' => 'toto',
+            'PHP_AUTH_PW'   => 'toto',
+        ]);
 
         $crawler = $client->request('GET', '/album');
 

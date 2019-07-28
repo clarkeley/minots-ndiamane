@@ -3,11 +3,8 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Album;
-use App\Entity\Picture;
 use App\Form\FormHandler\PicTypeHandler;
 use App\Form\PicType;
-use App\Manager\AlbumManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,13 +16,11 @@ class PictureController extends AbstractController
 {
     private $formHandler;
     private $formFactory;
-    private $albumManager;
 
-    public function __construct(PicTypeHandler $formHandler, PicType $formFactory, AlbumManager $albumManager)
+    public function __construct(PicTypeHandler $formHandler, PicType $formFactory)
     {
         $this->formHandler = $formHandler;
         $this->formFactory = $formFactory;
-        $this->albumManager = $albumManager;
     }
 
     public function __invoke(Request $request)
@@ -35,13 +30,11 @@ class PictureController extends AbstractController
         $form = $this->createForm(PicType::class);
         $form->handleRequest($request);
 
-        //$this->albumManager->addPicture($album);
-
         if ($this->formHandler->handle($form)) {
 
-            $this->addFlash('sucess', 'succes');
+            $this->addFlash('success', 'Photo enregistrée ! :)');
 
-            $this->redirectToRoute('app_media_picture');
+            $this->redirectToRoute('dashboard');
         }
 
         return $this->render('Admin/mediaPicture.html.twig', array('form' => $form->createView()));

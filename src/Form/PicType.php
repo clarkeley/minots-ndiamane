@@ -24,10 +24,7 @@ class PicType extends AbstractType
                 'required' => true,
                 'allow_delete' => true,
                 'download_label' => true,
-            ])
-            ->add('date', DateType::class, [
-                'label' => 'Ajout le ',
-                'widget' => 'single_text'
+                'label' => false
             ])
             ->add('caption', TextareaType::class, [
                 'label' => false,
@@ -38,7 +35,8 @@ class PicType extends AbstractType
             ->add('album', EntityType::class, [
                 'class' => Album::class,
                 'choice_label' => 'title',
-                'by_reference' => false
+                'by_reference' => false,
+                'label' => 'Choix de l\'album'
             ]);
     }
 

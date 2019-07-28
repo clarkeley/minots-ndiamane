@@ -1,27 +1,106 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Média : Photo{% endblock %}
+
 {% block body %}
-    <div class="container">
-        {{ form_start(form) }}
+    <div class="d-flex" id="wrapper">
 
-        <div class="form-group">
-            {{ form_row(form.imageFile) }}
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <img src="https://img.icons8.com/dusk/64/000000/dashboard.png" alt="dashboard_icon">
+                <span class="navbar-text">Bienvenue sur le Dashboard</span>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="{{ path('dashboard') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Média ▼</a>
+                <div class="collapse" id="submenu1" aria-expanded="false">
+                    <ul class="flex-column pl-2 nav">
+                        <li class="nav-item"><a class="nav-link py-0" href="{{ path('app_media_picture') }}">Ajouter une photo</a></li>
+                        <li class="nav-item"><a class="nav-link py-0" href="{{ path('album') }}">Créer un album</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Agenda</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Gestion des stocks</a>
+            </div>
         </div>
+        <!-- /#sidebar-wrapper -->
 
-        <div class="form-group">
-            {{ form_row(form.date) }}
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle" data-toggle="collapse" data-target="#sidebar-wrapper">Toggle Menu</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ app.user.username }} <i class="fas fa-tachometer-alt"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Retour au site</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ path('app_login') }}">Déconnexion</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4">Média : Photo</h1>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 text-center">
+                        <div class="card">
+                            <div class="card-header text-primary">Ajouter une photo</div>
+                            <div class="card-title">
+                                <br>Veuillez remplir ce formulaire pour ajouter une photo, rendez-vous sur la page <a href="{{path('album')}}"> album </a> pour en créer un nouveau :)<br>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <img src="{{ asset('css/images/fonds/smiley.png') }}" width="120" height="120" alt="<a href=https://fr.pngtree.com>Graphiques de pngtree.com</a>">
+                                    {{ form_start(form) }}
+
+                                    <div class="form-group">
+                                        {{ form_row(form.imageFile) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_row(form.caption) }}
+                                    </div>
+                                    {#
+                                            {% for picture in form.children %}
+                                                {{  form_widget(form.imageFile) }}
+                                                {{  form_widget(form.caption) }}
+                                            {% endfor %}
+
+                                            <div class="form-group">
+                                                <button type="button" id="add-picture" class="btn btn-success">&#43;</button>
+                                            </div>#}
+
+                                    <div class="form-group">
+                                        {{ form_row(form.album) }}
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Ajouter à l'album</button>
+
+                                    {{ form_end(form) }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group">
-            {{ form_row(form.caption) }}
-        </div>
-
-        <div class="form-group">
-            {{ form_row(form.album) }}
-        </div>
-
-        <button type="submit" class="btn btn-primary">Ajouter l'image</button>
-
-        {{ form_end(form) }}
+        <!-- /#page-content-wrapper -->
     </div>
 {% endblock %}

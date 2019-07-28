@@ -17,11 +17,22 @@ class AlbumType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
-            ->add('date', DateType::class, [
-                'widget' => 'single_text'
+            ->add('title', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Titre'
+                ]
             ])
-            ->add('caption', TextareaType::class);
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+                'label' => false
+            ])
+            ->add('caption', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Description de l\'album ici...'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

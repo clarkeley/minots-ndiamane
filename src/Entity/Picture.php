@@ -27,6 +27,7 @@ class Picture
 
     /**
      * @ORM\Column(type="date")
+     * @var \DateTime
      */
     private $date;
 
@@ -127,6 +128,7 @@ class Picture
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
+        $this->date = new \DateTime();
     }
 
     /**
