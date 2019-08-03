@@ -19,10 +19,20 @@ easy_admin:
             label: 'Album'
             list:
                 title: "Médias: Album"
+            form:
+                fields:
+                    - {property: 'title'}
+                    - {property: 'date'}
+                    - {property: 'caption'}
         media_picture:
             class: App\Entity\Picture
             label: 'Picture'
             list:
                 title: "Médias: Picture"
+            form:
+                fields:
+                    - {property: 'imageFile', type: 'vich_image'}
+                    - {property: 'caption'}
+                    - {property: 'album'}
     design:
         brand_color: '#FFA813'
