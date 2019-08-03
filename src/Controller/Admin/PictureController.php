@@ -34,7 +34,7 @@ class PictureController extends AbstractController
 
             $this->addFlash('success', 'Photo enregistrée ! :)');
 
-            $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('Admin/mediaPicture.html.twig', array('form' => $form->createView()));

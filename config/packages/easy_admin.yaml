@@ -1,0 +1,28 @@
+easy_admin:
+    site_name: 'Les Minots de Ndiémane'
+    user:
+        display_name: true
+        display_avatar: false
+    list:
+
+    entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Product
+#        - App\Entity\Categorys
+        User:
+            class: App\Entity\User
+            label: 'User'
+            list:
+                title: "Gestion des utilisateurs"
+        media_album:
+            class: App\Entity\Album
+            label: 'Album'
+            list:
+                title: "Médias: Album"
+        media_picture:
+            class: App\Entity\Picture
+            label: 'Picture'
+            list:
+                title: "Médias: Picture"
+    design:
+        brand_color: '#FFA813'

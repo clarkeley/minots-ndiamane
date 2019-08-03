@@ -34,7 +34,7 @@ class AlbumController extends AbstractController
 
             $this->addFlash('success', 'Bravo ! Vous venez de créer un album avec succés :)');
 
-            $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('Admin/mediaAlbum.html.twig', array('form' => $form->createView()));
