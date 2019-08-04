@@ -1,8 +1,9 @@
 easy_admin:
     site_name: 'Les Minots de Ndiémane'
     user:
+        name_property_path: 'username'
         display_name: true
-        display_avatar: false
+        display_avatar: true
     list:
 
     entities:
@@ -34,5 +35,25 @@ easy_admin:
                     - {property: 'imageFile', type: 'vich_image'}
                     - {property: 'caption'}
                     - {property: 'album'}
+        agenda:
+            class: App\Entity\Event
+            label: 'Agenda'
+            list:
+                title: "Agenda"
+            form:
+                fields:
+                    - {property: 'title'}
+                    - {property: 'date'}
+                    - {property: 'event', type: 'textarea'}
+                    - {property: 'imageFile', type: 'vich_image'}
+                    - {property: 'tags'}
     design:
         brand_color: '#FFA813'
+        menu:
+            - {label: 'Dashboard'}
+            - {entity: 'User', label: 'Users', icon: 'user'}
+            - {label: 'Médias'}
+            - {entity: 'media_album', label: 'Albums', icon: 'images'}
+            - {entity: 'media_picture', label: 'Photos', icon: 'image'}
+            - {label: 'Agenda'}
+            - {entity: 'agenda', label: 'Agenda', icon: 'calendar'}
