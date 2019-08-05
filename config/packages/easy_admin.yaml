@@ -12,7 +12,7 @@ easy_admin:
 #        - App\Entity\Categorys
         User:
             class: App\Entity\User
-            label: 'User'
+            label: 'Utilisateurs'
             list:
                 title: "Gestion des utilisateurs"
         media_album:
