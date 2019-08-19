@@ -82,7 +82,7 @@ easy_admin:
                 fields:
                     - {property: 'id'}
                     - {property: 'name', label: 'Catégorie'}
-                    - {property: 'dynamicTotalWeight', label: 'Poids total'}
+                    - {property: 'totalWeight', label: 'Poids total'}
                     - {property: 'totalVolume', label: 'Volume total'}
                     - {property: 'product', label: 'Produits associés'}
         stock_product:
@@ -133,6 +133,3 @@ easy_admin:
             - {label: 'Gestion des stocks'}
             - {entity: 'stock_product', label: 'Produits', icon: 'barcode'}
             - {entity: 'stock_category', label: 'Catégories', icon: 'archive'}
-
-#imports:
-#    - { resource: easy_admin/}

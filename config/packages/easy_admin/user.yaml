@@ -1,0 +1,18 @@
+easy_admin:
+     entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Product
+#        - App\Entity\Categorys
+        User:
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            list:
+                title: "Les Utilisateurs"
+                fields:
+                    - {property: 'id'}
+                    - {property: 'username', label: 'Pseudo'}
+                    - {property: 'password', label: 'Mot de passe'}
+            form:
+                fields:
+                    - {property: 'username', label: 'Pseudo'}
+                    - {property: 'password', label: 'Mot de passe'}

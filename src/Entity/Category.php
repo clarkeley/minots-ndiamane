@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Float_;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -103,9 +104,26 @@ class Category
         return $this->totalWeight;
     }
 
+    public function getDynamicTotalWeight(): ?float
+    {
+        $weight = 0;
+
+        foreach ($this->getProduct() as $product){
+            $weight += $product->getWeight();
+        }
+        return $weight;
+    }
+
     public function setTotalWeight(float $totalWeight): self
     {
         $this->totalWeight = $totalWeight;
+
+        return $this;
+    }
+
+    public function addTotalWeight(float $weight): self
+    {
+        $this->totalWeight += $weight;
 
         return $this;
     }
