@@ -104,16 +104,6 @@ class Category
         return $this->totalWeight;
     }
 
-    public function getDynamicTotalWeight(): ?float
-    {
-        $weight = 0;
-
-        foreach ($this->getProduct() as $product){
-            $weight += $product->getWeight();
-        }
-        return $weight;
-    }
-
     public function setTotalWeight(float $totalWeight): self
     {
         $this->totalWeight = $totalWeight;
@@ -121,11 +111,25 @@ class Category
         return $this;
     }
 
-    public function addTotalWeight(float $weight): self
+    public function addTotalWeightAndVolume(float $weight, float $volume): self
     {
         $this->totalWeight += $weight;
+        $this->totalVolume += $volume;
 
         return $this;
+    }
+
+    public function delTotalWeightAndVolume(float $weight, float $volume): self
+    {
+        $this->totalWeight -= $weight;
+        $this->totalVolume -= $volume;
+
+        return $this;
+    }
+
+    public function updateTotalWeightAndVolume(float $weight, float $volume): self
+    {
+        $this->totalWeight;
     }
 
     public function getTotalVolume(): ?float

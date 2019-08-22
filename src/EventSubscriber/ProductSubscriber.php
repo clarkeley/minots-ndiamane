@@ -3,6 +3,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\Category;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use App\Entity\Products;
@@ -13,11 +14,12 @@ class ProductSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'easy_admin.pre_persist' => array('updateCategoryWeight'),
+            'easy_admin.pre_persist' => array('addCategoryWeightAndVolume'),
+            'easy_admin.pre_remove' => array('delCategoryWeightAndVolume'),
         );
     }
 
-    public function updateCategoryWeight(GenericEvent $event)
+    public function addCategoryWeightAndVolume(GenericEvent $event)
     {
         $entity = $event->getSubject();
 
@@ -25,7 +27,20 @@ class ProductSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $entity->getCategory()->addTotalWeight($entity->getWeight());
+        $entity->getCategory()->addTotalWeightAndVolume($entity->getWeight(), $entity->getVolume());
+
+        $event['entity'] = $entity;
+    }
+
+    public function delCategoryWeightAndVolume(GenericEvent $event)
+    {
+        $entity = $event->getSubject();
+
+        if (!($entity instanceof Products)) {
+            return;
+        }
+
+        $entity->getCategory()->delTotalWeightAndVolume($entity->getWeight(), $entity->getVolume());
 
         $event['entity'] = $entity;
     }
