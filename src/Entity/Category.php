@@ -129,7 +129,7 @@ class Category
 
     public function updateTotalWeightAndVolume(float $weight, float $volume): self
     {
-        $this->totalWeight;
+        return $this;
     }
 
     public function getTotalVolume(): ?float

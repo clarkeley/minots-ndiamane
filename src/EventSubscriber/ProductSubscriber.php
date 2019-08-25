@@ -4,6 +4,7 @@
 namespace App\EventSubscriber;
 
 use App\Entity\Category;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use App\Entity\Products;
@@ -16,6 +17,7 @@ class ProductSubscriber implements EventSubscriberInterface
         return array(
             'easy_admin.pre_persist' => array('addCategoryWeightAndVolume'),
             'easy_admin.pre_remove' => array('delCategoryWeightAndVolume'),
+            'easy_admin.pre_update' => array('updateCategoryTotalWeightAndVolume')
         );
     }
 
@@ -41,6 +43,17 @@ class ProductSubscriber implements EventSubscriberInterface
         }
 
         $entity->getCategory()->delTotalWeightAndVolume($entity->getWeight(), $entity->getVolume());
+
+        $event['entity'] = $entity;
+    }
+
+    public function updateCategoryTotalWeightAndVolume(LifecycleEventArgs $args)
+    {
+        $entity = $args->getObject();
+
+        if (!($entity instanceof Products)) {
+            return;
+        }
 
         $event['entity'] = $entity;
     }
