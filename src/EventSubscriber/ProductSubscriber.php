@@ -4,26 +4,31 @@
 namespace App\EventSubscriber;
 
 use App\Entity\Category;
+use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
+use Doctrine\ORM\Events;
+use Doctrine\ORM\Mapping\PrePersist;
+use Doctrine\ORM\ORMException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use App\Entity\Products;
 
-class ProductSubscriber implements EventSubscriberInterface
+class ProductSubscriber implements EventSubscriber
 {
 
-    public static function getSubscribedEvents()
+    public function getSubscribedEvents()
     {
         return array(
-            'easy_admin.pre_persist' => array('addCategoryWeightAndVolume'),
-            'easy_admin.pre_remove' => array('delCategoryWeightAndVolume'),
-            'easy_admin.pre_update' => array('updateCategoryTotalWeightAndVolume')
+            Events::preUpdate,
+            Events::prePersist,
+            Events::preRemove,
         );
     }
 
-    public function addCategoryWeightAndVolume(GenericEvent $event)
+    public function prePersist(LifecycleEventArgs $args)
     {
-        $entity = $event->getSubject();
+        $entity = $args->getObject();
 
         if (!($entity instanceof Products)) {
             return;
@@ -34,9 +39,9 @@ class ProductSubscriber implements EventSubscriberInterface
         $event['entity'] = $entity;
     }
 
-    public function delCategoryWeightAndVolume(GenericEvent $event)
+    public function preRemove(LifecycleEventArgs $args)
     {
-        $entity = $event->getSubject();
+        $entity = $args->getObject();
 
         if (!($entity instanceof Products)) {
             return;
@@ -47,15 +52,60 @@ class ProductSubscriber implements EventSubscriberInterface
         $event['entity'] = $entity;
     }
 
-    public function updateCategoryTotalWeightAndVolume(LifecycleEventArgs $args)
+    public function updateCategoryTotalWeightAndVolume(GenericEvent $args)
     {
-        $entity = $args->getObject();
+        $entity = $args->getSubject();
 
         if (!($entity instanceof Products)) {
             return;
         }
 
+
+        $args->getArgument('em')->refresh();
+        $old = $args->getArgument('em')->getRepository(Products::class)->find($entity->getId());
+
+        dd($old, $entity);
+
+
+
         $event['entity'] = $entity;
+    }
+
+
+    public function preUpdate(PreUpdateEventArgs $args)
+    {
+        /*$entity = $args->getEntity();
+
+        $em = $args->getEntityManager();
+
+        if (!($entity instanceof Products)) {
+            return;
+        }
+
+        $args->getEntityManager()->refresh();
+
+        $oldValue = $em->getRepository(Products::class)->find($entity->getId());
+
+        dd($oldValue, $entity);
+
+       /* $oldValue = $em->getRepository(Products::class)->find($entity->getId());
+
+        dd($oldValue, $entity);
+
+        $args['entity'] = $entity;
+
+        $weight = $args->getNewValue('weight');
+        $volume = $args->getNewValue('volume');
+
+        if ($args->getEntity() instanceof Products) {
+            if ($args->hasChangedField('weight') && $args->hasChangedField('volume')) {
+                $args->setNewValue('weight', $weight);
+                $args->setNewValue('volume', $volume);
+
+            }
+        }*/
+
+        dd($args);
     }
 
 }
