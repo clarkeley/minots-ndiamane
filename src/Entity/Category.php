@@ -111,6 +111,18 @@ class Category
         return $this;
     }
 
+    /*public function getDynamicTotal(): ?float
+    {
+        $weight = 0;
+        $volume = 0;
+
+        foreach ($this->getProduct() as $product){
+            $weight += $product->getWeight();
+            $volume += $product->getVolume();
+        }
+        return $weight, $volume;
+    }*/
+
     public function addTotalWeightAndVolume(float $weight, float $volume): self
     {
         $this->totalWeight += $weight;

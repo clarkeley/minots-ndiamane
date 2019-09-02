@@ -4,8 +4,11 @@
 namespace App\EventSubscriber;
 
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductsRepository;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PostFlushEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\PrePersist;
@@ -52,60 +55,29 @@ class ProductSubscriber implements EventSubscriber
         $event['entity'] = $entity;
     }
 
-    public function updateCategoryTotalWeightAndVolume(GenericEvent $args)
-    {
-        $entity = $args->getSubject();
-
-        if (!($entity instanceof Products)) {
-            return;
-        }
-
-
-        $args->getArgument('em')->refresh();
-        $old = $args->getArgument('em')->getRepository(Products::class)->find($entity->getId());
-
-        dd($old, $entity);
-
-
-
-        $event['entity'] = $entity;
-    }
-
-
     public function preUpdate(PreUpdateEventArgs $args)
     {
-        /*$entity = $args->getEntity();
-
-        $em = $args->getEntityManager();
+        $entity = $args->getEntity();
 
         if (!($entity instanceof Products)) {
             return;
         }
 
-        $args->getEntityManager()->refresh();
+        if ($args->hasChangedField('weight') || $args->hasChangedField('volume')) {
+            /** @var CategoryRepository $productsRepository */
+           $productsRepository =  $args->getEntityManager()->getRepository(Category::class);
+           $category = $entity->getCategory();
+           $category->delTotalWeightAndVolume($args->getOldValue('weight'), $args->getOldValue('volume'));
+           $category->addTotalWeightAndVolume($args->getNewValue('weight'), $args->getNewValue('volume'));
 
-        $oldValue = $em->getRepository(Products::class)->find($entity->getId());
+            $productsRepository->updateTotalWeightAndVolume($category);
 
-        dd($oldValue, $entity);
 
-       /* $oldValue = $em->getRepository(Products::class)->find($entity->getId());
+            //dd($entity->getCategory());
+        }
 
-        dd($oldValue, $entity);
+        $event['entity'] = $entity;
 
-        $args['entity'] = $entity;
-
-        $weight = $args->getNewValue('weight');
-        $volume = $args->getNewValue('volume');
-
-        if ($args->getEntity() instanceof Products) {
-            if ($args->hasChangedField('weight') && $args->hasChangedField('volume')) {
-                $args->setNewValue('weight', $weight);
-                $args->setNewValue('volume', $volume);
-
-            }
-        }*/
-
-        dd($args);
     }
 
 }

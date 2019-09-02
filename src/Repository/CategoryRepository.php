@@ -47,4 +47,14 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function updateTotalWeightAndVolume(Category $category)
+    {
+        return $this->createQueryBuilder('c')->update()
+            ->set('c.totalWeight',$category->getTotalWeight())
+            ->set('c.totalVolume',$category->getTotalVolume())
+            ->where('c = :category')
+            ->setParameter('category',$category)
+            ->getQuery()
+            ->execute();
+    }
 }
