@@ -11,7 +11,6 @@ easy_admin:
                 fields:
                     - {property: 'id'}
                     - {property: 'username', label: 'Pseudo'}
-                    - {property: 'password', label: 'Mot de passe'}
             form:
                 fields:
                     - {property: 'username', label: 'Pseudo'}

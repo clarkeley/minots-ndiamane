@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    #        # List the entity class name you want to manage
+    #        - App\Entity\Product
+    #        - App\Entity\Categorys
+    account_management:
+      class: App\Entity\AccountManagement
+      label: 'AccountManager'
+      disabled_actions: ['edit', 'delete']
+      list:
+        title: "Comptes: Management"
+        fields:
+          - {property: 'id'}
+          - {property: 'money', label: 'Montant'}
+          - {property: 'updateBy', label: 'Modifié par'}
+      form:
+        fields:
+          - {property: 'money', label: 'Montant'}
+          - {property: 'account'}
+          - {property: 'updateBy', label: 'Modifié par'}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,54 @@ class Account
      * @ORM\Column(type="string", length=255)
      */
     private $updateBy;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AccountManagement", mappedBy="account", cascade={"persist", "remove"})
+     */
+    private $accountManagement;
+
+    public function __construct()
+    {
+        $this->accountManagement = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|AccountManagement[]
+     */
+    public function getAccountManagement(): Collection
+    {
+        return $this->accountManagement;
+    }
+
+    /**
+     * @param AccountManagement $accountManagement
+     * @return Account
+     */
+    public function addAccountManagement(AccountManagement $accountManagement): self
+    {
+        if (!$this->accountManagement->contains($accountManagement)) {
+            $this->accountManagement[] = $accountManagement;
+            $accountManagement->setAccount($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param AccountManagement $accountManagement
+     * @return Account
+     */
+    public function removeAccountManagement(AccountManagement $accountManagement): self
+    {
+        if (!$this->accountManagement->contains($accountManagement)) {
+            $this->accountManagement->removeElement($accountManagement);
+            if ($accountManagement->getAccount() === null) {
+                $accountManagement->setAccount(null);
+            }
+        }
+
+        return $this;
+    }
 
     public function getId(): ?int
     {

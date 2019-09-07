@@ -5,6 +5,9 @@ easy_admin:
       - {label: 'Dashboard'}
       - {entity: 'User', label: 'Utilisateurs', icon: 'user'}
       - {entity: 'tags', label: 'Tags', icon: 'tags'}
+      - {label: 'Gestion des comptes'}
+      - {entity: 'account_management', label: 'Management', icon: 'money-check'}
+      - {entity: 'account', label: 'Les comptes', icon: 'piggy-bank'}
       - {label: 'Médias'}
       - {entity: 'media_album', label: 'Albums', icon: 'images'}
       - {entity: 'media_picture', label: 'Photos', icon: 'image'}

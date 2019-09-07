@@ -1,0 +1,19 @@
+easy_admin:
+  entities:
+    #        # List the entity class name you want to manage
+    #        - App\Entity\Product
+    #        - App\Entity\Categorys
+    account:
+      class: App\Entity\Account
+      label: 'Account'
+      disabled_actions: ['edit']
+      list:
+        title: "Comptes: Détails des comptes"
+        fields:
+          - {property: 'id'}
+          - {property: 'funds', label: 'Total des fonds'}
+          - {property: 'updateBy', label: 'Compte'}
+      form:
+        fields:
+          - {property: 'funds', label: 'Fonds'}
+          - {property: 'updateBy', label: 'Nom de compte'}

@@ -1,5 +1,5 @@
 easy_admin:
-    site_name: 'Les Minots de Ndiémane'
+    site_name: 'Les Minots de Ndiamane'
     user:
         name_property_path: 'username'
         display_name: true
@@ -14,4 +14,6 @@ imports:
     - { resource: easy_admin/media_picture.yaml}
     - { resource: easy_admin/stock_category.yaml}
     - { resource: easy_admin/stock_product.yaml}
+    - { resource: easy_admin/account_management.yaml}
+    - { resource: easy_admin/account.yaml}
     - { resource: easy_admin/design.yaml}
