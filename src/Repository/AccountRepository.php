@@ -47,4 +47,14 @@ class AccountRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function updateFunds(Account $account)
+    {
+        return $this->createQueryBuilder('a')->update()
+            ->set('a.funds', $account->getFunds())
+            ->where('a = :account')
+            ->setParameter('account', $account)
+            ->getQuery()
+            ->execute();
+    }
 }

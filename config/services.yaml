@@ -31,3 +31,6 @@ services:
     App\EventSubscriber\ProductSubscriber:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+    App\EventSubscriber\AccountManageSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }

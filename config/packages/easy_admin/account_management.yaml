@@ -12,9 +12,9 @@ easy_admin:
         fields:
           - {property: 'id'}
           - {property: 'money', label: 'Montant'}
+          - {property: 'updateAt', label: 'Date'}
           - {property: 'updateBy', label: 'Modifié par'}
       form:
         fields:
           - {property: 'money', label: 'Montant'}
           - {property: 'account'}
-          - {property: 'updateBy', label: 'Modifié par'}

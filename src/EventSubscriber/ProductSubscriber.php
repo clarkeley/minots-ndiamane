@@ -72,8 +72,6 @@ class ProductSubscriber implements EventSubscriber
 
             $productsRepository->updateTotalWeightAndVolume($category);
 
-
-            //dd($entity->getCategory());
         }
 
         $event['entity'] = $entity;

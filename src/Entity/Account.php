@@ -93,6 +93,13 @@ class Account
         return $this;
     }
 
+    public function updateFunds(float $money): self
+    {
+        $this->funds += $money;
+
+        return $this;
+    }
+
     public function getUpdateBy(): ?string
     {
         return $this->updateBy;
