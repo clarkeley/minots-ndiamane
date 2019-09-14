@@ -25,3 +25,9 @@ body#login {
     border-radius: 1%;
     box-shadow: inset;
 }
+
+@media (max-width: 570px) {
+    .img-split {
+        display: none;
+    }
+}
