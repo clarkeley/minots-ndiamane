@@ -92,6 +92,5 @@ class AccountManagement
     public function __construct()
     {
         $this->updateAt = new \DateTime();
-        $this->updateBy = get_current_user();
     }
 }

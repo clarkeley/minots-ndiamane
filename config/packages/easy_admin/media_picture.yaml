@@ -10,7 +10,7 @@ easy_admin:
                 title: "Médias: Photos"
                 fields:
                     - {property: 'id'}
-                    - {property: 'image', label: 'Image', type: 'image', base_path: '%app.path.picture%'}
+                    - {property: 'imageName', label: 'Image', type: 'image', base_path: '%app.path.picture%'}
                     - {property: 'caption', label: 'Description'}
                     - {property: 'date', label: 'Ajouté le'}
                     - {property: 'album'}

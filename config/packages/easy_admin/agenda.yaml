@@ -13,7 +13,7 @@ easy_admin:
                     - {property: 'title', label: 'Titre'}
                     - {property: 'date'}
                     - {property: 'event', label: 'Évènement'}
-                    - {property: 'image', label: 'Image', type: 'image', base_path: '%app.path.picture%' }
+                    - {property: 'imageName', label: 'Image', type: 'image', base_path: '%app.path.picture%' }
                     - {property: 'tags'}
             form:
                 fields:

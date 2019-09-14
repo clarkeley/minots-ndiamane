@@ -2,18 +2,18 @@ easy_admin:
   entities:
     #        # List the entity class name you want to manage
     #        - App\Entity\Product
-    #        - App\Entity\Categorys
+    #        - App\Entity\Category
     account_management:
       class: App\Entity\AccountManagement
       label: 'AccountManager'
       disabled_actions: ['edit', 'delete']
       list:
-        title: "Comptes: Management"
+        title: "Comptes: Transactions"
         fields:
           - {property: 'id'}
           - {property: 'money', label: 'Montant'}
           - {property: 'updateAt', label: 'Date'}
-          - {property: 'updateBy', label: 'Modifié par'}
+          - {property: 'updateBy', label: 'Éffectuée par'}
       form:
         fields:
           - {property: 'money', label: 'Montant'}
