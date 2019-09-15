@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    #        # List the entity class name you want to manage
+    #        - App\Entity\Product
+    #        - App\Entity\Categorys
+    newsletter:
+      class: App\Entity\NewsLetter
+      label: 'NewsLetter'
+      disabled_actions: ['edit', 'add']
+      list:
+        title: "NewsLetter"
+        fields:
+          - {property: 'id'}
+          - {property: 'email', label: 'Abonné'}

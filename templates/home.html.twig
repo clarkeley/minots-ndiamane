@@ -9,15 +9,17 @@
                 <div><img src="{{ asset('css/images/fonds/home.png') }}" alt="homePic"></div>
             </div>
             <div class="col-sm-6 page-block">
-                {% include 'menu/menu.html.twig' %}
+                {% include 'menu/menu.html.twig' %}<br>
 
-                <blockquote>
-                    <p>"Qui sauve un <span class="orange-color">enfant</span> sauve le <span class="orange-color">monde</span> ."</p>
-                </blockquote>
+                <div>
+                    <blockquote>
+                        <h3>"Qui sauve un <span class="orange-color">enfant</span><br> sauve le <span class="orange-color">monde</span> ."</h3>
+                    </blockquote>
+                </div>
 
                 {#Countdown#}
-                <div class="container">
-                    <h1>Décompte avant le prochain départ</h1>
+                <div class="d-5">
+                    <p>Décompte avant le prochain départ</p>
 
                     <div id="timer"></div>
                 </div>
@@ -26,15 +28,29 @@
                     <a href="https://fr.tipeee.com/" class="btn buttons-link" role="button">Je fais un don à l'association</a>
                 </div>
 
+                {#NewsLetter form#}
                 <div>
-                    <h3 class="hr">NEWSLETTER</h3><br>
-                    <p>Pour se tenir au courant des activités en lien<br> avec le groupe associatif.</p>
+                    <h3 class="hr">NEWSLETTER</h3>
+                    <p class="d-2">Pour se tenir au courant des activités en lien<br> avec le groupe associatif.</p>
+
+                    {{ form_start(form)}}
+                    <form>
+                        <div class="form-row justify-content-center d-3">
+                            <div class="col-sm-2 form-home">
+                                {{ form_row(form.email) }}
+                            </div>
+                            <div class="col-sm-3 form-home">
+                                <button type="submit" class="btn btn-orange">S'ABONNER</button>
+                            </div>
+                        </div>
+                    </form>
+                    {{ form_end(form) }}
                 </div>
 
-                <footer><p> Les Minots de Ndiamane &copy; 2019<p></footer>
+                <footer class="b-1"> Les Minots de Ndiamane &copy; 2019</footer>
             </div>
         </div>
-    </div>npm
+    </div>
 {% endblock %}
 
 {% block javascripts %}

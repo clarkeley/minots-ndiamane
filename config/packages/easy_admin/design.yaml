@@ -4,6 +4,7 @@ easy_admin:
     menu:
       - {label: 'Dashboard'}
       - {entity: 'User', label: 'Utilisateurs', icon: 'user'}
+      - {entity: 'newsletter', icon: 'users'}
       - {entity: 'tags', label: 'Tags', icon: 'tags'}
       - {label: 'Gestion des comptes'}
       - {entity: 'account_management', label: 'Transactions', icon: 'money-check'}

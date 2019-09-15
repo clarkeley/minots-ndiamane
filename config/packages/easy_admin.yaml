@@ -16,4 +16,5 @@ imports:
     - { resource: easy_admin/stock_product.yaml}
     - { resource: easy_admin/account_management.yaml}
     - { resource: easy_admin/account.yaml}
+    - { resource: easy_admin/newsletter.yaml}
     - { resource: easy_admin/design.yaml}
