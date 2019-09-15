@@ -2,3 +2,8 @@
 .d-5 {
     margin-top: 10%;
 }
+
+.page-content {
+    min-width: 100vw;
+    margin-left: 0;
+}

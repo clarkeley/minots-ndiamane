@@ -3,12 +3,58 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <div class=row>
-        <div class="col-xs-6 img-split">
-            <div><img src="{{ asset('css/images/fonds/home.png') }}" alt="homePic"></div>
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-6 img-split">
+                <div><img src="{{ asset('css/images/fonds/home.png') }}" alt="homePic"></div>
+            </div>
+            <div class="col-sm-6 page-block">
+                {% include 'menu/menu.html.twig' %}
+
+                <blockquote>
+                    <p>"Qui sauve un <span class="orange-color">enfant</span> sauve le <span class="orange-color">monde</span> ."</p>
+                </blockquote>
+
+                {#Countdown#}
+                <div class="container">
+                    <h1>Décompte avant le prochain départ</h1>
+
+                    <div id="timer"></div>
+                </div>
+
+                <div>
+                    <a href="https://fr.tipeee.com/" class="btn buttons-link" role="button">Je fais un don à l'association</a>
+                </div>
+
+                <div>
+                    <h3 class="hr">NEWSLETTER</h3><br>
+                    <p>Pour se tenir au courant des activités en lien<br> avec le groupe associatif.</p>
+                </div>
+
+                <footer><p> Les Minots de Ndiamane &copy; 2019<p></footer>
+            </div>
         </div>
-        <div class="col-xs-6">
-            <div>Hello</div>
-        </div>
-    </div>
+    </div>npm
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const year = new Date().getFullYear();
+        const gettingStarted = new Date((year + 1), 1, 1).getTime();
+
+        let timer = setInterval(function() {
+
+            const today = new Date().getTime();
+
+            const diff = gettingStarted - today;
+
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML =
+                "<div class=\"days\"> \ <div class=\"numbers\">" + days + "</div>Jours</div> \ <div class=\"hours\"> \ <div class=\"numbers\">" + hours + "</div>Heures</div> \ <div class=\"minutes\"> \ <div class=\"numbers\">" + minutes + "</div>Minutes</div> \ <div class=\"seconds\"> \ <div class=\"numbers\">" + seconds + "</div>Secondes</div> \ </div>";
+        }, 1000);
+    </script>
 {% endblock %}

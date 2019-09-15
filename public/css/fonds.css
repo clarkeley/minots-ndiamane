@@ -26,8 +26,62 @@ body#login {
     box-shadow: inset;
 }
 
+/* img invisible on smartphone */
 @media (max-width: 570px) {
     .img-split {
         display: none;
     }
+}
+
+.page-block {
+    background-color: #FFE35A;
+}
+
+.orange-color {
+    color: #FFA100;
+}
+
+#timer {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .7em;
+    letter-spacing: 5px;
+    margin-top: 10%;
+}
+
+.days, .hours, .minutes, .seconds {
+    display: inline-block;
+    padding: 20px;
+    width: 115px;
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+
+.numbers {
+    color: black;
+    font-size: 4em;
+}
+
+.buttons-link {
+    background-color: #88CC7F;
+    color: white;
+    margin-top: 10%;
+}
+
+.buttons-link:hover {
+    color: white;
+}
+
+.hr, .hr::before, .hr::after {
+    display:inline-block;
+    vertical-align: middle;
+    margin-top: 10%;
+}
+.hr::before, .hr::after {
+    height:2px;
+    width:100px;
+    background: white;
+    content:""
 }
