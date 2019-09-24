@@ -5,8 +5,8 @@
 {% block body %}
     <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-sm-6 img-split">
-                <div><img src="{{ asset('css/images/fonds/home.png') }}" alt="homePic"></div>
+            <div class="col-sm-6 img-split p-0">
+                <img src="{{ asset('css/images/fonds/home.png') }}" alt="homePic">
             </div>
             <div class="col-sm-6 page-block">
                 {% include 'menu/menu.html.twig' %}<br>
@@ -40,7 +40,7 @@
                                 {{ form_row(form.email) }}
                             </div>
                             <div class="col-sm-3 form-home">
-                                <button type="submit" class="btn btn-orange">S'ABONNER</button>
+                                <button type="submit" formmethod="post" class="btn btn-orange">S'ABONNER</button>
                             </div>
                         </div>
                     </form>
@@ -54,6 +54,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script>
         const year = new Date().getFullYear();
         const gettingStarted = new Date((year + 1), 1, 1).getTime();

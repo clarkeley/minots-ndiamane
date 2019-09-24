@@ -3,8 +3,6 @@
 
 namespace App\Form;
 
-
-use App\Entity\NewsLetter;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,13 +18,6 @@ class NewsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Email'
                 ]]);
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => NewsLetter::class
-        ]);
     }
 
 }

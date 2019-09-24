@@ -3,34 +3,34 @@
 
 namespace App\Controller;
 
-
-use App\Entity\NewsLetter;
+use App\Form\FormHandler\NewsTypeHandler;
 use App\Form\NewsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/home", name="home")
+ */
 class HomeController extends AbstractController
 {
-    /**
-     * @Route("/home", name="home")
-     */
-    public function subscriber(Request $request)
-    {
-        $subscriber = new NewsLetter();
+    private $formHandler;
+    private $formFactory;
 
-        $form = $this->createForm(NewsType::class, $subscriber);
+    public function __construct(NewsTypeHandler $formHandler, NewsType $formFactory)
+    {
+        $this->formHandler = $formHandler;
+        $this->formFactory = $formFactory;
+    }
+
+    public function __invoke(Request $request)
+    {
+        $form = $this->createForm(NewsType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $subscriber = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subscriber);
-            $entityManager->flush();
-
             $this->addFlash('success', 'Inscription validée ! :)');
 
             return $this->redirectToRoute('home');
