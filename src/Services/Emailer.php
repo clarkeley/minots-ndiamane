@@ -10,7 +10,14 @@ use Symfony\Component\Mime\Email;
 
 class Emailer
 {
-    public function doContact(MailerInterface $mailer, FormInterface $form)
+    private $mailer;
+
+    public function __construct(MailerInterface $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
+    public function doContact(FormInterface $form)
     {
         $builder = $form->getData();
 
@@ -18,10 +25,10 @@ class Emailer
             ->from($builder['email'])
             ->to('ndiamane.lesminots@gmail.com')
             ->subject('Contact  :'.$builder['nom'] .$builder['prenom'].$builder['objet'])
-            ->setBody($builder['message'])
+            ->text($builder['message'])
             ;
 
-        $mailer->send($email);
+        $this->mailer->send($email);
     }
 
 }
