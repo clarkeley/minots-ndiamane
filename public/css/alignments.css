@@ -1,4 +1,35 @@
 /* Down space */
+.d-2 {
+    margin-top: 2%;
+}
+
+.d-3 {
+    margin-top: 5%;
+}
+
+.d-4 {
+    margin-top: 7%;
+}
+
 .d-5 {
     margin-top: 10%;
+}
+
+.d-10 {
+    margin-top: 100%;
+}
+
+.b-1 {
+    margin-top: 10%;
+}
+
+.page-content {
+    min-width: 100vw;
+    margin-left: 0;
+}
+
+.form-home {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

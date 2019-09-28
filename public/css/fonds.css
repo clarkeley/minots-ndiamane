@@ -10,6 +10,10 @@
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
+.font-txt {
+    font-family: "Roboto Light", sans-serif;
+}
+
 /* Fond login */
 body#login {
     background-image: url("images/fonds/fond_login.jpg");
@@ -19,9 +23,117 @@ body#login {
     min-width: 100%;
 }
 
+/* Fond login */
+.contact {
+    background-image: url("images/fonds/fond_contact.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
 /* fond formulaire login */
 .f-login {
     background-color: white;
     border-radius: 1%;
     box-shadow: inset;
+}
+
+/* img invisible on smartphone */
+@media (max-width: 570px) {
+    .img-split {
+        display: none;
+    }
+}
+
+/* footer invisible on pc */
+@media (min-width: 570px) {
+    .footer-black {
+        display: none;
+    }
+}
+
+.page-block {
+    background-color: #FFE35A;
+}
+
+.orange-color {
+    color: #FFA100;
+}
+
+#timer {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .7em;
+    letter-spacing: 5px;
+    margin-top: 5%;
+}
+
+.days, .hours, .minutes, .seconds {
+    display: inline-block;
+    padding: 20px;
+    width: 115px;
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+
+.numbers {
+    color: black;
+    font-size: 4em;
+}
+
+.buttons-link {
+    background-color: #88CC7F;
+    color: white;
+    margin-top: 10%;
+}
+
+.buttons-link:hover {
+    color: white;
+}
+
+.btn-orange {
+    background-color: #FFA100;
+    color: white;
+}
+
+.btn-orange:hover {
+    color: white;
+}
+
+.hr, .hr::before, .hr::after {
+    display:inline-block;
+    vertical-align: middle;
+    margin-top: 10%;
+}
+.hr::before, .hr::after {
+    height:2px;
+    width:80px;
+    background: white;
+    content:""
+}
+
+.footer {
+    color: white;
+}
+
+.footer-black {
+    color: black;
+}
+
+/*contact box opacity*/
+.contactBox{
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+.form-border{
+    border: none;
 }

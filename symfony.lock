@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "curl/curl": {
+        "version": "2.2.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -80,6 +83,9 @@
     },
     "doctrine/reflection": {
         "version": "v1.0.0"
+    },
+    "drewm/mailchimp-api": {
+        "version": "v2.5.4"
     },
     "easycorp/easy-log-handler": {
         "version": "1.0",

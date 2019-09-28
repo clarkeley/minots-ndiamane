@@ -1,0 +1,15 @@
+.txt {
+    font-size: 1.5em;
+}
+
+.menu-background {
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* menu invisible on pc */
+@media (min-width: 570px) {
+    .menu-op {
+        display: none;
+    }
+}
