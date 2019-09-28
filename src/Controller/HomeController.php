@@ -29,7 +29,7 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
+        if ($this->formHandler->handle($form))
         {
             $this->addFlash('success', 'Inscription validée ! :)');
 
