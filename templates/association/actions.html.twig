@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-6 page-block">
+                <div class="menu-background menu-op">
+                    {% include 'menu/menu.html.twig' %}
+                </div>
+
+                <h1 class="d-5 font-title">Nos actions</h1>
+
+                <button class="d-3 btn buttons-link">Je fais un don à l'association</button>
+
+                {#Txt actions#}
+                <div class="d-3">
+                    <p class="font-txt">
+                        <span class="bold">Donation de fournitures variées</span> (scolaires,<br> matériel pour enseignants, lunettes,<br> machines à coudre, bourses...)
+                    </p>
+
+                    <img src="{{ asset('css/ico/Groupe 16.png') }}" alt="Icones">
+                </div>
+
+                <div class="d-3">
+                    <p class="font-txt">
+                        Donation de nourriture
+                    </p>
+
+                    <img src="{{ asset('css/ico/apple-black-silhouette-with-a-leaf.png') }}" alt="Icones">
+                </div>
+
+                <div class="d-3">
+                    <p class="font-txt">
+                        Construction de salles de classe
+                    </p>
+
+                    <img src="{{ asset('css/ico/school.png') }}" alt="Icones">
+                </div>
+
+                <div class="d-3">
+                    <p class="font-txt">
+                        Construction de cliniques
+                    </p>
+
+                    <img src="{{ asset('css/ico/medical-kit.png') }}" alt="Icones">
+                </div>
+
+                <div class="d-3">
+                    <p class="font-txt">
+                        Installation de panneaux solaires
+                    </p>
+
+                    <img src="{{ asset('css/ico/solar-energy.png') }}" alt="Icones">
+                </div>
+
+                <footer class="footer-black d-5"> Les Minots de Ndiamane &copy; 2019</footer>
+            </div>
+
+            <div class="col-sm-6 img-split p-0 actions">
+                <div class="menu-background">
+                    {% include 'menu/menu.html.twig' %}
+                </div>
+
+                <footer class="d-10 footer"> Les Minots de Ndiamane &copy; 2019</footer>
+            </div>
+        </div>
+    </div>
+{% endblock %}

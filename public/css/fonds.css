@@ -10,8 +10,21 @@
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
+/* Fond titles */
 .font-txt {
     font-family: "Roboto Light", sans-serif;
+    color: #6A6A6A;
+    justify-content: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font-title {
+    font-family: "Roboto Light", sans-serif;
+    color: #6A6A6A;
+    font-weight: bold;
 }
 
 /* Fond login */
@@ -23,7 +36,21 @@ body#login {
     min-width: 100%;
 }
 
-/* Fond login */
+/* Fond history */
+.history {
+    background-image: url("images/fonds/fond_contact.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+/* Fond actions */
+.actions {
+    background-image: url("images/fonds/fond_actions.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+/* Fond contact */
 .contact {
     background-image: url("images/fonds/fond_contact.png");
     background-repeat:no-repeat;

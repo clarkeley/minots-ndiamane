@@ -3,6 +3,14 @@
     margin-top: 2%;
 }
 
+.q-2-l {
+    margin-left: 2%;
+}
+
+.q-2-r {
+    margin-right: 2%;
+}
+
 .d-3 {
     margin-top: 5%;
 }
@@ -16,11 +24,16 @@
 }
 
 .d-10 {
-    margin-top: 100%;
+    margin-top: 93%;
 }
 
 .b-1 {
     margin-top: 10%;
+}
+
+/* text align */
+p {
+    text-indent: 0;
 }
 
 .page-content {
