@@ -38,7 +38,7 @@ body#login {
 
 /* Fond history */
 .history {
-    background-image: url("images/fonds/fond_contact.png");
+    background-image: url("images/fonds/fond_history.png");
     background-repeat:no-repeat;
     background-size:cover;
 }
