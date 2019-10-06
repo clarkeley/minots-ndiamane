@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Contact{% endblock %}
+
 {% block body %}
     <div class="container-fluid text-center">
         <div class="row">
@@ -32,7 +34,7 @@
                         <p>Aucune information personnelle communiquée<br>dans ce formulaire ne sera transmise à un tiers ou<br>utilisée à des fins marketing sauf demande<br>expresse de votre part.</p>
                     </div>
                     <div class="col-sm-12 d-5">
-                        <button type="submit" formmethod="post" class="btn btn-orange">ENVOYER</button>
+                        <button type="submit" formmethod="post" class="btn btn-lg btn-orange">ENVOYER</button>
                     </div>
                     {{ form_end(form) }}
                 </div>

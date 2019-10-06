@@ -13,3 +13,11 @@
         display: none;
     }
 }
+
+/* menu invisible on pc */
+@media (max-width: 570px) {
+    .menu-sm {
+        background-color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}

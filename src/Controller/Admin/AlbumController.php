@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/album", name="album")
+ * @Route("/albumadmin", name="albumadmin")
  */
 class AlbumController extends AbstractController
 {
