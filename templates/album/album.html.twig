@@ -24,6 +24,8 @@
 
                 <div class="">
                     {% for album in album %}
+                        <img src="{{ vich_uploader_asset(random(album.picture), 'imageFile') | imagine_filter('album_thumb') }}" alt="{{ album }}">
+
                         <a href="{{ path('album_show', {'id': album.id}) }}" class="btn btn-lg btn-album" role="button">
                             {{ album }}
                         </a>
@@ -33,6 +35,15 @@
                         </p>
                     {% endfor %}
                 </div>
+
+                {% if (maxPage > 1) %}
+                    <li>
+                        <a href="{{ path('album', {page: page - 1}) }}"><i class="fa fa-chevron-left"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('album', {page: page + 1}) }}"><i class="fa fa-chevron-right"></i></a>
+                    </li>
+                {% endif %}
 
                 <footer class="b-1"> Les Minots de Ndiamane &copy; 2019</footer>
             </div>

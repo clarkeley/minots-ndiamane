@@ -14,9 +14,26 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class AlbumRepository extends ServiceEntityRepository
 {
+    const LIMIT_PER_PAGE = 2;
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Album::class);
+    }
+
+    public function getAll($page)
+    {
+        return $this->createQueryBuilder('a')
+            ->setMaxResults(self::LIMIT_PER_PAGE)
+            ->setFirstResult(($page-1)*self::LIMIT_PER_PAGE)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getMaxPage()
+    {
+        $total =  $this->count([]);
+        return ceil($total/self::LIMIT_PER_PAGE);
     }
 
     // /**
