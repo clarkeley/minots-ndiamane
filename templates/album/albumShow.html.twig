@@ -16,9 +16,9 @@
                     <p>{{ album.caption }}</p>
                 </div>
 
-                <div class="">
+                <div class="row">
                     {% for picture in album.picture %}
-                        <img src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('album_thumb') }}" alt="{{ picture.imageName }}">
+                        <img src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('album_show') }}" alt="{{ picture.imageName }}">
                     {% endfor %}
                 </div>
 

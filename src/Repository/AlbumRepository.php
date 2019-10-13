@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class AlbumRepository extends ServiceEntityRepository
 {
-    const LIMIT_PER_PAGE = 2;
+    const LIMIT_PER_PAGE = 4;
 
     public function __construct(RegistryInterface $registry)
     {

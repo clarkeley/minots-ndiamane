@@ -33,7 +33,7 @@ class Event
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $event;
 

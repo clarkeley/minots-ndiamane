@@ -13,7 +13,7 @@
                     {% include 'menu/menu.html.twig' %}
                 </div>
 
-                <h1 class="d-4 font-title">Album</h1>
+                <h1 class="d-5 font-title">Album</h1>
 
                 <div class="font-txt d-3">
                     <p>Chaque voyage au village de Ndiamane apporte son lot de photos<br><br>
@@ -22,30 +22,50 @@
 
                 </div>
 
-                <div class="">
+                <div class="d-4 row col-al">
                     {% for album in album %}
-                        <img src="{{ vich_uploader_asset(random(album.picture), 'imageFile') | imagine_filter('album_thumb') }}" alt="{{ album }}">
-
-                        <a href="{{ path('album_show', {'id': album.id}) }}" class="btn btn-lg btn-album" role="button">
-                            {{ album }}
-                        </a>
-
-                        <p class="bold font-txt">
-                            {{ album.date|date('d/m/Y') }}
-                        </p>
+                        <div class="col-6">
+                            <div>
+                                <img src="{{ vich_uploader_asset(random(album.picture), 'imageFile') | imagine_filter('album_thumb') }}" alt="{{ album }}">
+                            </div>
+                            <a href="{{ path('album_show', {'id': album.id}) }}" class="btn btn-lg btn-album" role="button">
+                                {{ album }}
+                            </a>
+                            <p class="bold font-txt txt-album">
+                                {{ album.date|date('d/m/Y') }}
+                            </p>
+                        </div>
                     {% endfor %}
                 </div>
 
-                {% if (maxPage > 1) %}
-                    <li>
-                        <a href="{{ path('album', {page: page - 1}) }}"><i class="fa fa-chevron-left"></i></a>
-                    </li>
-                    <li>
-                        <a href="{{ path('album', {page: page + 1}) }}"><i class="fa fa-chevron-right"></i></a>
-                    </li>
-                {% endif %}
+                <div class="d-4 col-sm-al">
+                    {% for album in album %}
+                        <div class="">
+                            <div>
+                                <img src="{{ vich_uploader_asset(random(album.picture), 'imageFile') | imagine_filter('album_thumb') }}" alt="{{ album }}">
+                            </div>
+                            <a href="{{ path('album_show', {'id': album.id}) }}" class="btn btn-lg btn-album" role="button">
+                                {{ album }}
+                            </a>
+                            <p class="bold font-txt txt-album">
+                                {{ album.date|date('d/m/Y') }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="d-4-4">
+                    {% if (page == 1) %}
+                        <a href="{{ path('album', {page: page + 1}) }}"><img src="{{ asset('css/ico/right-chevron.png') }}" alt="right chevron"></a>
+                    {% elseif (maxPage > 1 and page != 1) %}
+                        <a href="{{ path('album', {page: page - 1}) }}"><img src="{{ asset('css/ico/left-chevron.png') }}" alt="left chevron"></a>
+
+                        <a href="{{ path('album', {page: page + 1}) }}"><img src="{{ asset('css/ico/right-chevron.png') }}" alt="right chevron"></a>
+                    {% endif %}
+                </div>
 
                 <footer class="b-1"> Les Minots de Ndiamane &copy; 2019</footer>
+
             </div>
         </div>
     </div>

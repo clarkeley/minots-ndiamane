@@ -1,4 +1,8 @@
 /* Down space */
+.d-1 {
+    margin-top: 1%;
+}
+
 .d-2 {
     margin-top: 2%;
 }
@@ -19,16 +23,28 @@
     margin-top: 7%;
 }
 
+.d-4-4 {
+    margin-top: 8.1%;
+}
+
+.d-4-5 {
+    margin-top: 8.3%;
+}
+
 .d-5 {
     margin-top: 10%;
 }
 
 .d-10 {
-    margin-top: 93%;
+    margin-top: 99%;
 }
 
 .b-1 {
-    margin-top: 10%;
+    margin-top: 4%;
+}
+
+.b-2 {
+    margin-bottom: 10%;
 }
 
 /* text align */

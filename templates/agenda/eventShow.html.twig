@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda{% endblock %}
+
+{% block body %}
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-12 page-block">
+                <div class="row menu-sm justify-content-end">
+                    {% include 'menu/menu.html.twig' %}
+                </div>
+
+                <div>
+                    <h1 class="d-4 font-title">{{ event.title }}</h1>
+                    <p class="bold font-txt">
+                        le, {{ event.date|date('d/m/Y') }}
+                    </p>
+                </div>
+
+                <div class="row justify-content-center d-2">
+                    <img src="{{ vich_uploader_asset(event, 'imageFile') | imagine_filter('event_show') }}" alt="{{ event.imageName }}">
+                </div>
+
+                <div class="row justify-content-center">
+                    <p class="font-txt d-3 col-sm-6">
+                        {{ event.event }}
+                    </p>
+                </div>
+
+                {% for tag in event.tags %}
+                    <span class="badge badge-success tags">{{ tag }}</span>
+                {% endfor %}
+
+                <footer class="b-1"> Les Minots de Ndiamane &copy; 2019</footer>
+            </div>
+        </div>
+    </div>
+{% endblock %}

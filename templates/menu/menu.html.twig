@@ -15,15 +15,17 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ path('history') }}">Histoire</a>
                         <a class="dropdown-item" href="{{ path('actions') }}">Nos actions</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('home') }}">Retour à l'accueil</a>
                     </div>
                 </li>
 
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="#">LE VILLAGE</a>
+                    <a class="nav-link" href="{{ path('village') }}">LE VILLAGE</a>
                 </li>
 
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="#">AGENDA</a>
+                    <a class="nav-link" href="{{ path('agenda') }}">AGENDA</a>
                 </li>
 
                 <li class="nav-item ml-5">

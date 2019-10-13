@@ -10,10 +10,10 @@
                     {% include 'menu/menu.html.twig' %}
                 </div>
 
-                <h1 class="d-4 font-title">CONTACT</h1>
+                <h1 class="d-5 font-title">CONTACT</h1>
 
                 {#Contact form#}
-                <div class="row justify-content-center d-3">
+                <div class="row justify-content-center d-5">
                     {{ form_start(form)}}
                     <div class="col-sm-12 contactBox">
                             {{ form_row(form.nom) }}
@@ -30,13 +30,18 @@
                     <div class="col-sm-12 contactBox">
                             {{ form_row(form.message) }}
                     </div>
-                    <div class="col-sm-12 font-txt">
+                    <div class="col-sm-12 font-txt d-5">
                         <p>Aucune information personnelle communiquée<br>dans ce formulaire ne sera transmise à un tiers ou<br>utilisée à des fins marketing sauf demande<br>expresse de votre part.</p>
                     </div>
                     <div class="col-sm-12 d-5">
                         <button type="submit" formmethod="post" class="btn btn-lg btn-orange">ENVOYER</button>
                     </div>
                     {{ form_end(form) }}
+                </div>
+
+                <div class="d-4-5 none img-split">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
                 </div>
 
                 <footer class="footer-black d-3"> Les Minots de Ndiamane &copy; 2019</footer>
