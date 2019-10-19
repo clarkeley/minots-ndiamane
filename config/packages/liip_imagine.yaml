@@ -23,6 +23,13 @@ liip_imagine:
             filters:
                 thumbnail: { size: [720, 480], mode: outbound }
 
+        event_thumb:
+
+            quality: 100
+
+            filters:
+                thumbnail: { size: [261, 158], mode: outbound }
+
         event_show:
 
             quality: 100

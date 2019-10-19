@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda: Les Archives{% endblock %}
+
+{% block body %}
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-12 page-block">
+                <div class="row menu-sm justify-content-end">
+                    {% include 'menu/menu.html.twig' %}
+                </div>
+
+                <h1 class="d-3 font-title">Les Archives</h1>
+
+                {#Archives#}
+                <div class="d-4">
+                    {% for archive in event %}
+                        <div class="row d-1 justify-content-center">
+                            <div class="col-sm-3 font-txt bold align-self-end">
+                                <p>{{ archive.title }}</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <a href="{{ path('agenda_show', {'id': archive.id}) }}" class="btn btn-lg btn-album" role="button">
+                                    lire la suite
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <footer class="d-100"> Les Minots de Ndiamane &copy; 2019</footer>
+            </div>
+        </div>
+    </div>
+{% endblock %}

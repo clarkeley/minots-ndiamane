@@ -19,10 +19,22 @@ class AgendaController extends AbstractController
      */
     public function index(EventRepository $eventRepository)
     {
-        $eventShow = $this->getDoctrine()->getRepository(Event::class)->findAll();
-        $event = $eventRepository->lastEvent();
+        $events = $eventRepository->getAll();
+        $lastEvent = $eventRepository->lastEvent();
 
-        return $this->render('agenda/events.html.twig', ['event' => $event, 'eventShow' => $eventShow]);
+        return $this->render('agenda/events.html.twig', ['lastEvent' => $lastEvent, 'events' => $events]);
+    }
+
+    /**
+     * @Route("/agenda/archives", name="agenda_archives")
+     * @param EventRepository $eventRepository
+     * @return Response
+     */
+    public function archives(EventRepository $eventRepository)
+    {
+        $event = $eventRepository->getAll();
+
+        return $this->render('agenda/eventArchives.html.twig', ['event' => $event]);
     }
 
     /**

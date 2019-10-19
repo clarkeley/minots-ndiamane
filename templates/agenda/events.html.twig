@@ -13,21 +13,31 @@
                 <h1 class="d-5 font-title">Agenda</h1>
 
                 {#Events#}
-                <div class="d-3">
+                {% for event in events %}
+                    {% if loop.first %}
+                        <div class="d-4 b-2">
+                            <div class="row justify-content-center d-2">
+                                <img src="{{ vich_uploader_asset(event, 'imageFile') | imagine_filter('event_show') }}" alt="{{ event.imageName }}">
+                            </div>
 
-                </div>
+                            <p class="font-txt d-3"><span class="bold">{{ event.title }}</span> {{ event.date|date('d/m/Y') }}</p>
 
-                <div class="row">
-                    {% for show in eventShow %}
-                        <div class="col-sm-12">
-                            <p>{{ show.title }}</p>
-                            <a href="{{ path('agenda_show', {'id': show.id}) }}" class="btn btn-lg btn-album" role="button">
-                                lire la suite
-                            </a>
+                            <p class="font-txt d-3">
+                                {{ event.event }}
+                            </p>
+
+                            {% for tag in event.tags %}
+                                <span class="badge badge-success tags">{{ tag }}</span>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-                </div>
+                    {% endif %}
+                {% endfor %}
 
+                <div class="col">
+                    <a href="{{ path('agenda_archives') }}" class="btn btn-lg btn-album" role="button">
+                        Nos archives ici
+                    </a>
+                </div>
 
                 <footer class="footer-black d-3"> Les Minots de Ndiamane &copy; 2019</footer>
             </div>
@@ -37,7 +47,7 @@
                     {% include 'menu/menu.html.twig' %}
                 </div>
 
-                <footer class="d-10 footer"> Les Minots de Ndiamane &copy; 2019</footer>
+                <footer class="d-100 footer"> Les Minots de Ndiamane &copy; 2019</footer>
             </div>
         </div>
     </div>

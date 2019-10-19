@@ -25,18 +25,7 @@ class EventRepository extends ServiceEntityRepository
             ->orderBy("e.id", "DESC")
             ->setMaxResults(1)
             ->getQuery()
-            ->getResult();
-    }
-
-    public function oldEvent()
-    {
-        $last = $this->lastEvent();
-
-        return $this->createQueryBuilder('e')
-            ->select('e')
-            ->where('e != :$last')
-            ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
     }
 
     // /**
@@ -67,4 +56,14 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function getAll()
+    {
+
+        return $this->createQueryBuilder('e')
+            ->addSelect('tags')
+            ->innerJoin('e.tags', 'tags')
+            ->orderBy('e.date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }
