@@ -9,6 +9,13 @@
             <link rel="stylesheet" href="{{ asset('css/fonds.css') }}">
             <link rel="stylesheet" href="{{ asset('css/alignments.css') }}">
             <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+            <!-- Core CSS file -->
+            <link rel="stylesheet" href="{{ asset('photoswipe/dist/photoswipe.css')}}">
+            <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+             In the folder of skin CSS file there are also:
+             - .png and .svg icons sprite,
+             - preloader.gif (for browsers that do not support CSS animations) -->
+            <link rel="stylesheet" href="{{ asset('photoswipe/dist/default-skin/default-skin.css')}}">
         {% endblock %}
     </head>
     <body>
@@ -28,6 +35,10 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
             <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+            <!-- Core JS file -->
+            <script src="{{asset('photoswipe/dist/photoswipe.min.js')}}"></script>
+            <!-- UI JS file -->
+            <script src="{{asset('photoswipe/dist/photoswipe-ui-default.min.js')}}"></script>
         {% endblock %}
     </body>
 </html>

@@ -44,7 +44,11 @@ class AlbumController extends AbstractController
             );
         }
 
-        return $this->render('album/albumShow.html.twig', ['album' => $album]);
+        return $this->render('album/albumShow.html.twig', ['album' => $album,'slides'=>[
+            ['src' => 'https://placekitten.com/600/400',
+                'w' => 600,
+                'h' => 400]
+        ]]);
 
     }
 
