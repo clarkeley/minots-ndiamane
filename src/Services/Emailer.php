@@ -6,6 +6,8 @@ namespace App\Services;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
 use Symfony\Component\Mime\Email;
 
 class Emailer
@@ -23,7 +25,7 @@ class Emailer
 
         $email = (new Email())
             ->from($builder['email'])
-            ->to('ndiamane.lesminots@gmail.com')
+            ->to('dominique.auguier@minots-ndiamane.fr')
             ->subject('Contact  :'.$builder['nom'] .$builder['prenom'].$builder['objet'])
             ->text($builder['message'])
             ;
