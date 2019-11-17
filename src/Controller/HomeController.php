@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/home", name="home")
+ * @Route("/", name="home")
  */
 class HomeController extends AbstractController
 {
