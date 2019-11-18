@@ -11,7 +11,7 @@
 }
 
 /* Logo */
-@media (min-width: 980px) {
+@media (min-width: 992px) {
     .logo {
         display: none;
     }
@@ -27,7 +27,7 @@
 .txt-album {
     margin-left: 40%;
 }
-@media (max-width: 979px) {
+@media (max-width: 991px) {
     .txt-album {
         margin-left: 50%;
     }
@@ -44,12 +44,12 @@
 }
 
 /* Menu */
-@media (max-width: 979px) {
+@media (max-width: 991px) {
     .menu-large {
         display: none;
     }
 }
-@media (min-width: 980px) {
+@media (min-width: 992px) {
     .menu-smart {
         display: none;
     }
@@ -121,28 +121,28 @@ body#login {
 }
 
 /* img invisible on smartphone */
-@media (max-width: 979px) {
+@media (max-width: 991px) {
     .img-split {
         display: none;
     }
 }
 
 /* footer invisible on pc */
-@media (min-width: 980px) {
+@media (min-width: 992px) {
     .footer-black {
         display: none;
     }
 }
 
 /* album invisible smartphone */
-@media (max-width: 979px) {
+@media (max-width: 991px) {
     .col-al {
         display: none;
     }
 }
 
 /* album invisible on pc */
-@media (min-width: 980px) {
+@media (min-width: 992px) {
     .col-sm-al {
         display: none;
     }
@@ -199,7 +199,7 @@ body#login {
     color: white;
 }
 
-@media (max-width: 570px) {
+@media (max-width: 991px) {
     .buttons-link {
         width: 100%;
         height: 100%;
@@ -234,12 +234,12 @@ body#login {
     background: white;
     content:""
 }
-@media (max-width: 979px) {
+@media (max-width: 991px) {
     .hr {
         display: none;
     }
 }
-@media (min-width: 980px) {
+@media (min-width: 992px) {
     .no-hr {
         display: none;
     }
