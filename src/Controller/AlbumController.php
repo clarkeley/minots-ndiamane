@@ -23,7 +23,6 @@ class AlbumController extends AbstractController
     {
         $page = $request->query->get('page',1);
         $maxPage = $albumRepository->getMaxPage();
-        dump($maxPage);
         $album = $albumRepository->getAll($page);
 
         return $this->render('album/album.html.twig', ['album' => $album, 'page' => $page, 'maxPage' => $maxPage]);
