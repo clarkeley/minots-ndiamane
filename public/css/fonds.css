@@ -11,7 +11,7 @@
 }
 
 /* Logo */
-@media (min-width: 570px) {
+@media (min-width: 980px) {
     .logo {
         display: none;
     }
@@ -27,7 +27,7 @@
 .txt-album {
     margin-left: 40%;
 }
-@media (max-width: 570px) {
+@media (max-width: 979px) {
     .txt-album {
         margin-left: 50%;
     }
@@ -44,12 +44,12 @@
 }
 
 /* Menu */
-@media (max-width: 570px) {
+@media (max-width: 979px) {
     .menu-large {
         display: none;
     }
 }
-@media (min-width: 570px) {
+@media (min-width: 980px) {
     .menu-smart {
         display: none;
     }
@@ -121,28 +121,28 @@ body#login {
 }
 
 /* img invisible on smartphone */
-@media (max-width: 570px) {
+@media (max-width: 979px) {
     .img-split {
         display: none;
     }
 }
 
 /* footer invisible on pc */
-@media (min-width: 570px) {
+@media (min-width: 980px) {
     .footer-black {
         display: none;
     }
 }
 
 /* album invisible smartphone */
-@media (max-width: 570px) {
+@media (max-width: 979px) {
     .col-al {
         display: none;
     }
 }
 
 /* album invisible on pc */
-@media (min-width: 570px) {
+@media (min-width: 980px) {
     .col-sm-al {
         display: none;
     }
@@ -234,12 +234,12 @@ body#login {
     background: white;
     content:""
 }
-@media (max-width: 570px) {
+@media (max-width: 979px) {
     .hr {
         display: none;
     }
 }
-@media (min-width: 570px) {
+@media (min-width: 980px) {
     .no-hr {
         display: none;
     }
